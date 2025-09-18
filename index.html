@@ -41,9 +41,12 @@
         }
 
 
+        /* mask遮罩範例 */
         .box_mask {
             width: 100%;
             height: 100vh;
+
+            /* 如果要固定遮罩的比例+剛好填滿父元素(不會因為瀏覽器調整長寬就變形)，可以在父元素用aspect-ratio鎖定比例在設定單一的寬或高就好*/
 
             /* 背景圖 */
             background-image: url('/images/bg.jpg');
@@ -53,6 +56,7 @@
             background-repeat: no-repeat;
             /* 背景的位置(也能設xy座標 或直接寫left top或right bottom) */
             background-position: center;
+
 
 
             /* 遮罩的部分 */
@@ -75,6 +79,29 @@
              luminance(亮度值決定遮蔽)、
              match-source(自動選擇，有透明度通道就用前者，沒有就用後者)*/
             mask-mode: luminance;
+        }
+
+        /* clip-path遮罩範例 */
+         .box_clip-path {
+            width: 100%;
+            height: 100vh;
+            
+            /* 背景圖 */
+            background-image: url('/images/bg2.jpg');
+            /* 背景填滿(cover是維持原圖比例完全填滿但可能裁減；contain是維持比例但必須完全顯示所以可能有空白)也能設100% 100%不管比例直接填滿*/
+            background-size: cover;
+            /* 背景不重複 */
+            background-repeat: no-repeat;
+            /* 背景的位置(也能設xy座標 或直接寫left top或right bottom) */
+            background-position: center;
+
+            /* 遮罩的部分 */
+       
+            /* 固定 clip-path（使用像素值） */
+            /* clip-path: polygon(150px 0px, 0px 200px, 300px 200px); */
+
+            /* . 響應式 clip-path（使用百分比） */
+             clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
         }
 
 
@@ -116,7 +143,6 @@
             color: rgb(253, 226, 246);
         }
 
-
         
         p.describe.two{
             color:white;
@@ -134,29 +160,7 @@
 
 
 
-        .box_clip-path {
-            width: 100%;
-            height: 100vh;
-
-            /* 背景圖 */
-            background-image: url('/images/bg2.jpg');
-            /* 背景填滿(cover是維持原圖比例完全填滿但可能裁減；contain是維持比例但必須完全顯示所以可能有空白)也能設100% 100%不管比例直接填滿*/
-            background-size: cover;
-            /* 背景不重複 */
-            background-repeat: no-repeat;
-            /* 背景的位置(也能設xy座標 或直接寫left top或right bottom) */
-            background-position: center;
-
-            /* 遮罩的部分 */
        
-
-            /* 固定 clip-path（使用像素值） */
-            /* clip-path: polygon(150px 0px, 0px 200px, 300px 200px); */
-
-            /* . 響應式 clip-path（使用百分比） */
-           clip-path: polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%);
-        }
-
 
         @media(max-width:800px){
             body{
@@ -182,7 +186,7 @@
         <p class="describe">Mask遮罩範例
             <!-- 代碼連結 -->
             <!-- <button class="code-linkBtn">
-                <a href="https://codepen.io/harureya/pen/pvgzxVR" target="_blank">看代碼</a>
+                <a href="/" target="_blank">看代碼</a>
             </button> -->
         </p>
     </div>
@@ -197,7 +201,7 @@
         <p class="describe two">clip-path遮罩範例
             <!-- 代碼連結 -->
             <!-- <button class="code-linkBtn">
-                <a href="https://codepen.io/harureya/pen/XJXrxqV" target="_blank">看代碼</a>
+                <a href="/" target="_blank">看代碼</a>
             </button> -->
         </p>
     </div>
